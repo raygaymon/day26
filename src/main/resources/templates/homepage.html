@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form th:action="@{/findShow/finding}" method="POST">
+        <label for="name">Type name of movie to find: </label>
+        <input type="text" name="name">
+        <button type="submit">Try to find</button>
+    </form>
+    <p th:if="${error != null}" th:text="${error}"></p>
+    <a href="/findShow/findAll">Find All Shows</a>
+</body>
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body >
+    <a href="/findShow"><h1>GO BACK</h1></a>
+    <table th:object="${showsFound}" style="border: 1px solid black">
+        <thead style="border: 1px solid black">
+            <th></th>
+            <th>Show Name</th>
+            <th>Type</th>
+            <th>Runtime</th>
+            <th>Genre(s)</th>
+            <th>Average Rating</th>
+        </thead>
+        <tr th:each="show : ${showsFound}" >
+            <td style="border: 1px solid black">
+                <img th:src="${show.imageURL}"/>
+            </td>            
+            <td th:text="${show.name}" style="border: 1px solid black;text-align: center; padding: 10px"></td>
+            <td th:text="${show.type}" style="border: 1px solid black;text-align: center; padding: 10px"></td>
+            <td th:text="${show.runtime}" style="border: 1px solid black; text-align: center; padding: 10px"></td>
+            <td style="border: 1px solid black">
+                <table th:each="genre : ${show.genre}">
+                    <tr>
+                        <td th:text="${genre}" style="text-align: center; padding: 10px"></td>
+                    </tr>
+                </table>
+            </td>
+            <td th:text="${show.averageRating}" style="border: 1px solid black;text-align: center; padding: 10px"></td>
+
+        </tr>
+    </table>
+    <a href="/findShow">Back</a>
+</body>
+</html>
